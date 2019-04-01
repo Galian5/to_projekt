@@ -1,0 +1,15 @@
+.idea/
+out/
+*.iml
+modules.xml
+*.ipr
+
+### Gradle ###
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Cache of project
+.gradletasknamecache
