@@ -10,4 +10,6 @@ public interface BusRepository extends Repository<Bus, Integer> {
     @Query("SELECT bus FROM Bus bus")
     @Transactional(readOnly = true)
     Collection<Bus> findBuses();
+
+    void save(Bus bus);
 }
