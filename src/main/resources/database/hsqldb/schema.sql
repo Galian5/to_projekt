@@ -19,8 +19,6 @@ CREATE TABLE routes (
 );
 
 
-
-
 ALTER TABLE rides ADD CONSTRAINT fk_rides_routes FOREIGN KEY (route_id) REFERENCES routes (id);
 
 
