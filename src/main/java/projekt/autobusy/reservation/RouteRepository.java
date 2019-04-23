@@ -4,17 +4,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Collection;
+
+import java.util.List;
 
 @org.springframework.stereotype.Repository
 public interface RouteRepository extends Repository<Route, Integer> {
-    @Query("SELECT DISTINCT route FROM Route route")
+    @Query("SELECT DISTINCT route FROM Route route left join fetch route.rides")
     @Transactional(readOnly = true)
-    Collection<Route> findAll();
+    List<Route> findAll();
 
     void save(Route route);
 
-    @Query("SELECT route FROM Route route WHERE route.id =:id")
+    @Query("SELECT route FROM Route route left join fetch route.rides WHERE route.id =:id")
     @Transactional(readOnly = true)
     Route findById(@Param("id") Integer id);
 }

@@ -5,6 +5,8 @@ import projekt.autobusy.model.BaseEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "rides")
@@ -17,8 +19,9 @@ public class Ride extends BaseEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate rideTime;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ride")
-//    private Set<Reservation> reservations;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ride")
+    private Set<Reservation> reservations = new LinkedHashSet<>();
+
 
     public Route getRoute() {
         return route;
@@ -34,6 +37,10 @@ public class Ride extends BaseEntity {
 
     public void setRideTime(LocalDate rideTime) {
         this.rideTime = rideTime;
+    }
+
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
     }
 
 //    public Set<Reservation> getReservations() {

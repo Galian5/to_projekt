@@ -1,7 +1,9 @@
 package projekt.autobusy.reservation;
 
 
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import projekt.autobusy.bus.Bus;
 
 import java.util.List;
 
@@ -17,5 +19,14 @@ public class ReservationController {
     @RequestMapping(value = "/reservations", method = RequestMethod.GET, produces = "application/json")
     public List<Reservation> getAll() {
         return reservations.findAll();
+    }
+
+    @PostMapping("/reservations")
+    public String newReservation(Ride ride, Reservation reservation, ModelMap model) {
+
+        ride.addReservation(reservation);
+        this.reservations.save(reservation);
+
+        return "redirect:reservations.html";
     }
 }
