@@ -12,9 +12,8 @@ public interface RideRepository extends Repository<Ride, Integer> {
     @Transactional(readOnly = true)
     List<Ride> findAll();
 
-    void save(Ride ride);
-
-//    @Query("SELECT ride FROM Ride ride WHERE ride.id =:id")
     @Transactional(readOnly = true)
     Ride findById(int rideId);
+
+    void save(Ride ride);
 }

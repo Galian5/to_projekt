@@ -39,12 +39,4 @@ public class Route extends BaseEntity {
     public void addRide(Ride ride) {
         rides.add(ride);
     }
-
-//    public Set<Ride> getRides() {
-//        return rides;
-//    }
-
-//    public void setRides(Set<Ride> rides) {
-//        this.rides = rides;
-//    }
 }

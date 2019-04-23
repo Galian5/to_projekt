@@ -1,9 +1,11 @@
 package projekt.autobusy.reservation;
 
-
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-import projekt.autobusy.bus.Bus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 

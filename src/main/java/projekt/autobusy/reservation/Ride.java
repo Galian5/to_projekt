@@ -3,7 +3,14 @@ package projekt.autobusy.reservation;
 import org.springframework.format.annotation.DateTimeFormat;
 import projekt.autobusy.model.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -43,11 +50,4 @@ public class Ride extends BaseEntity {
         reservations.add(reservation);
     }
 
-//    public Set<Reservation> getReservations() {
-//        return reservations;
-//    }
-//
-//    public void setReservations(Set<Reservation> reservations) {
-//        this.reservations = reservations;
-//    }
 }
