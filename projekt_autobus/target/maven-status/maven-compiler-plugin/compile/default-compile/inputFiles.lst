@@ -1,0 +1,14 @@
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/bus/BusController.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/RideRepository.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/Application.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/Reservation.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/ReservationController.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/ReservationRepository.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/Ride.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/RouteController.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/model/BaseEntity.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/Route.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/RouteRepository.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/bus/Bus.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/bus/BusRepository.java
+/home/galian/Desktop/studia/obiektowe/projekt_autobus/src/main/java/projekt/autobusy/reservation/RideController.java
