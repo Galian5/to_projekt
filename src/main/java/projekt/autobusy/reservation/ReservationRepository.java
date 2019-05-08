@@ -12,5 +12,8 @@ public interface ReservationRepository extends Repository<Reservation, Integer> 
     @Transactional(readOnly = true)
     List<Reservation> findAll();
 
+    @Transactional(readOnly = true)
+    Reservation findById(int reservationId);
+
     void save(Reservation reservation);
 }
