@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#trasy tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+        $.makeTable = function (mydata) {
+            var table = $('<table border=1>');
+            var tblHeader = "<tr>";
+            for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+            tblHeader += "</tr>";
+            $(tblHeader).appendTo(table);
+            $.each(mydata, function (index, value) {
+                console.log(index);
+                var id = index +1;
+                var button = `<form action= "/routes/${id}/rides.html"><button type=\"submit\"> Sprawdź przejazdy</button></form>`;
+                var TableRow = "<tr>";
+                $.each(value, function (key, val) {
+                    TableRow += "<td>" + val + "</td>";
+                });
+                TableRow += "<td>" + button + "</td>";
+                TableRow += "</tr>";
+                $(table).append(TableRow);
+            });
+            return ($(table));
+        };
+
+
+       $(document).ready(function(){
+            $.get( "routes", function( data, status ) {
+                var table = $.makeTable(data);
+                $(table).appendTo("#trasy");
+            });
+
+       });
+
+    </script>
+</head>
+
+<body>
+
+<form role="search">
+    <input type="search" id="myInput" name="q" placeholder="Wyszukaj trasę">
+    <!--<input type="submit" onclick="jakasFunkcja()" value="Szukaj!">-->
+</form>
+<h3>Dostępne trasy: </h3>
+<table id="trasy">
+
+</table>
+<br>
+<h3>Dodaj trasę: </h3>
+<form id="addRouteForm" action="/routes" method="post">
+    <input type="text" name="startCity" placeholder="Miasto początkowe">
+    <input type="text" name="endCity" placeholder="Miasto docelowe">
+    <input type="submit" value="Dodaj" >
+</form>
+
+</body>
+
+</html>
