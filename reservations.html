@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+
+        $.makeTable = function (mydata) {
+            var table = $('<table border=1>');
+            var tblHeader = "<tr>";
+            for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+            tblHeader += "</tr>";
+            $(tblHeader).appendTo(table);
+            $.each(mydata, function (index, value) {
+                console.log(index);
+                var TableRow = "<tr>";
+                $.each(value, function (key, val) {
+                    TableRow += "<td>" + val + "</td>";
+                });
+                TableRow += "<td>" + button + "</td>";
+                TableRow += "</tr>";
+                $(table).append(TableRow);
+            });
+            return ($(table));
+        };
+
+
+        $(document).ready(function(){
+            $.get( "routes/1/rides/1/reservations", function(data) {
+                var table = $.makeTable(data);
+                $(table).appendTo("#rezerwacje");
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+<h3>Aktualne rezerwacje: </h3>
+<table id="rezerwacje">
+
+</table>
+<br>
+<h3>Dodaj rezerwacje: </h3>
+<form id="addReservationForm" action=routes/1/rides/1/reservations method="post">
+    <input type="text" name="reservation" placeholder="Rezerwacja">
+    <input type="submit" value="Dodaj" >
+</form>
+
+</body>
+
+</html>
