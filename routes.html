@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-
-
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
@@ -14,7 +12,6 @@
                 });
             });
         });
-
         $.makeTable = function (mydata) {
             var table = $('<table border=1>');
             var tblHeader = "<tr>";
@@ -24,7 +21,7 @@
             $.each(mydata, function (index, value) {
                 console.log(index);
                 var id = index +1;
-                var button = `<form action= "/routes/${id}/rides.html"><button type=\"submit\"> Sprawdź przejazdy</button></form>`;
+                var button = `<form action= "/routes/${id}/rides"><button type=\"submit\"> Sprawdź przejazdy</button></form>`;
                 var TableRow = "<tr>";
                 $.each(value, function (key, val) {
                     TableRow += "<td>" + val + "</td>";
@@ -35,16 +32,12 @@
             });
             return ($(table));
         };
-
-
-       $(document).ready(function(){
+        $(document).ready(function(){
             $.get( "routes", function( data, status ) {
                 var table = $.makeTable(data);
                 $(table).appendTo("#trasy");
             });
-
-       });
-
+        });
     </script>
 </head>
 

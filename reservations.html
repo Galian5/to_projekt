@@ -14,11 +14,16 @@
             $(tblHeader).appendTo(table);
             $.each(mydata, function (index, value) {
                 console.log(index);
+                console.log(value);
+                let ridetime = value.ride.rideTime;
+                let rideid = value.ride.id;
+                let start = value.ride.route.startCity;
+                let end = value.ride.route.endCity;
                 var TableRow = "<tr>";
-                $.each(value, function (key, val) {
-                    TableRow += "<td>" + val + "</td>";
-                });
-                TableRow += "<td>" + button + "</td>";
+                // $.each(value, function (key, val) {
+                TableRow += "<td>" + rideid + "</td>";
+                    TableRow += "<td>" + start + ", " + end + ", " + ridetime + "</td>";
+                // });
                 TableRow += "</tr>";
                 $(table).append(TableRow);
             });
@@ -45,7 +50,9 @@
 <br>
 <h3>Dodaj rezerwacje: </h3>
 <form id="addReservationForm" action=routes/1/rides/1/reservations method="post">
-    <input type="text" name="reservation" placeholder="Rezerwacja">
+    <input type="text" name="routeId" placeholder="Numer trasy">
+    <input type="text" name="rideId" placeholder="Numer przejazdu">
+
     <input type="submit" value="Dodaj" >
 </form>
 

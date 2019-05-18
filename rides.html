@@ -14,13 +14,16 @@
             $(tblHeader).appendTo(table);
             $.each(mydata, function (index, value) {
                 console.log(index);
+                console.log(value);
                 var id = index +1;
-                // var route_id = 1;
-                var button = `<form action= "window.location.pathname/${id}"><button type=\"submit\"> Sprawdź rezerwacje</button></form>`; //zmodyfikowac adres linka
+                let ridetime = value.rideTime;
+                let rideid = value.id;
+                let start = value.route.startCity;
+                let end = value.route.endCity;
+                var button = `<form action= "routes/${id}"><button type=\"submit\"> Sprawdź rezerwacje</button></form>`;
                 var TableRow = "<tr>";
-                $.each(value, function (key, val) {
-                    TableRow += "<td>" + val + "</td>";
-                });
+                TableRow += "<td>" + rideid + "</td>";
+                TableRow += "<td>" + start + ", " + end + ", " + ridetime + "</td>";
                 TableRow += "<td>" + button + "</td>";
                 TableRow += "</tr>";
                 $(table).append(TableRow);
@@ -28,9 +31,11 @@
             return ($(table));
         };
 
+        var routeId = 2; // zmienic potem na razie to test
+
 
         $(document).ready(function(){
-            $.get( "http://localhost:8080/routes/1/rides", function(data, status) {
+            $.get( `routes/2/rides`, function(data, status) {
                 var table = $.makeTable(data);
                 $(table).appendTo("#przejazdy");
             });
@@ -46,8 +51,8 @@
 
 </table>
 <br>
-<h3>Dodaj trasę: </h3>
-<form id="addRideForm" action=routes/1/rides method="post">
+<h3>Dodaj przejazd: </h3>
+<form id="addRideForm" action=routes/2/rides method="post">
     <input type="text" name="route_id" placeholder="Numer trasy">
     <input type="date" name="rideTime" placeholder="Czas przejazdu">
     <input type="submit" value="Dodaj" >
